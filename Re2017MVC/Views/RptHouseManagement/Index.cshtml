@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    ViewBag.NomeUtente = "Rossi Mario";
+    Layout = "~/Views/Shared/_LayoutPageREM.cshtml";
+}
+@model Re2017MVC.Models.RptHouseManagement.IndexViewModel
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Manage House's reports</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+<!-- /.row -->
+<div class="row">
+
+    <div class="col-lg-12">
+
+       
+            <!-- /.panel-heading -->
+           
+              
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:200px">House</th>
+                                        <th style="width:100px">Year</th>
+                                        <th style="width:200px">Month</th>
+                                        <th style="width:800px">Note</th>
+                                        <th>Last update</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var riga in Model.LstHouses)
+                                     {
+                                    <tr>
+                                        <td>@riga.nickname</td>
+                                        <td>
+                                            @Html.DropDownList("Year", Model.LstYears, new { @class = "form-control" })
+                                        </td>
+                                        <td>
+                                            @Html.DropDownList("Month", Model.LstMonths, new { @class = "form-control" })
+                                        </td>
+                                        <td>@Html.TextArea("Note","",4,1, new { @class = "form-control" })</td>
+                                        <td>Last update <br />January 2018</td>
+                                        <td>@Html.ActionLink("Generate", "GeneraReport", "RptHouseManagement", new { id = riga.id }, new { @class = "btn btn-primary",@style="float:right" })</td>
+                                        
+                                    </tr>
+                                    }
+
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+              
+
+         
+            <!-- /.panel-body -->
+        
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+

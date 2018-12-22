@@ -1,0 +1,119 @@
+﻿@model Re2017MVC.Models.Shared.BaseViewModel
+@using Re2017MVC.Models.Shared
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>REM - Real Estate Management</title>
+    <!-- Bootstrap Core CSS -->
+    @Styles.Render("~/bundles/REMCss")
+    @*<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">*@
+    @*<link rel="stylesheet" href="../vendor/tagsInput/bootstrap-tagsinput.css">*@
+    <!-- MetisMenu CSS -->
+    @*<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">*@
+
+    <!-- DataTables CSS -->
+    @*<link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">*@
+
+    <!-- DataTables Responsive CSS -->
+    @*<link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">*@
+
+    <!-- Custom CSS -->
+    @*<link href="../dist/css/sb-admin-2.css" rel="stylesheet">*@
+
+    <!-- Morris Charts CSS -->
+    @*<link href="../vendor/morrisjs/morris.css" rel="stylesheet">*@
+
+    <!-- Custom Fonts -->
+    @*<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">*@
+
+    @*<link href="../css/AiChatbot.css" rel="stylesheet" type="text/css">*@
+
+    @*@Styles.Render("~/ContentREM/css")
+        @Scripts.Render("~/OtherREM/css")*@
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div id="wrapper">
+
+                @{ Html.RenderPartial("_Header", Model.HeaderVM); }
+
+                <div id="page-wrapper">
+                    @RenderBody()
+                </div>
+                <!-- /#page-wrapper -->
+            </div>
+            <!-- /#wrapper -->
+            <!-- jQuery -->
+            @Scripts.Render("~/bundles/REMJs")
+            @*<script src="../vendor/DropzoneJs_scripts/jquery.min.js"></script>
+            <script src="../vendor/DropzoneJs_scripts/dropzone.js"></script>*@
+            @*<link href="../vendor/DropzoneJs_scripts/dropzone.css" rel="stylesheet" />*@
+        <link rel="stylesheet" href="../vendor/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
+            <script type="text/javascript" src="../vendor/source/jquery.fancybox.pack.js?v=2.1.7"></script>
+            <!-- Bootstrap Core JavaScript -->
+            @*<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>*@
+
+
+            @*<script type="text/javascript" src="/vendor/plugin/cookies/jquery.cookie.js"></script>*@
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".fancybox").fancybox();
+                    $(".various").fancybox({
+                        maxWidth: 600,
+                        maxHeight: 600,
+                        fitToView: false,
+                        width: '70%',
+                        height: '48%',
+                        autoSize: false,
+                        closeClick: false,
+                        openEffect: 'none',
+                        closeEffect: 'none',
+                        afterClose: function (instance, slide) { __doPostBack(); }
+                    });
+                });
+                function CreateGuid() {
+                    function _p8(s) {
+                        var p = (Math.random().toString(16) + "000000000").substr(2, 8);
+                        return s ? "-" + p.substr(0, 4) + "-" + p.substr(4, 4) : p;
+                    }
+                    return _p8() + _p8(true) + _p8(true) + _p8();
+                }
+            </script>
+
+
+
+
+            <!-- Metis Menu Plugin JavaScript -->
+        @*<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+
+
+        <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+        <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>*@
+
+        <!-- Custom Theme JavaScript -->
+        @*<script src="../dist/js/sb-admin-2.js"></script>
+
+        <script src="../vendor/tagsInput/bootstrap-tagsinput.min.js"></script>*@
+
+
+        </div>
+
+    </form>
+   
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/JavascriptREM")
+        @RenderSection("scripts", required: false)*@
+</body>
+</html>
