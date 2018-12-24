@@ -6,6 +6,24 @@
 }
 @model Re2017MVC.Models.RptHouseManagement.IndexViewModel
 
+@section scripts
+{
+<script>
+   
+    function GoToGeneraReport(e) {
+        debugger;
+        var tr = $(e).closest('tr');
+        var Id = tr.find("#HiddenId")[0].value;
+        var Year = tr.find("#CboYear")[0].value;
+        var Month = tr.find("#CboMonth")[0].value;
+        var Note = tr.find("#TxtNote")[0].value;
+        window.location.href = "RptHouseManagement/GeneraReport?Id=" + Id + "&Year=" + Year + "&Month=" + Month + "&Note=" + Note;
+        e.preventDefault;
+    }
+</script>
+}
+
+
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Manage House's reports</h1>
@@ -20,54 +38,48 @@
 
     <div class="col-lg-12">
 
-       
-            <!-- /.panel-heading -->
-           
-              
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th style="width:200px">House</th>
-                                        <th style="width:100px">Year</th>
-                                        <th style="width:200px">Month</th>
-                                        <th style="width:800px">Note</th>
-                                        <th>Last update</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var riga in Model.LstHouses)
-                                     {
-                                    <tr>
-                                        <td>@riga.nickname</td>
-                                        <td>
-                                            @Html.DropDownList("Year", Model.LstYears, new { @class = "form-control" })
-                                        </td>
-                                        <td>
-                                            @Html.DropDownList("Month", Model.LstMonths, new { @class = "form-control" })
-                                        </td>
-                                        <td>@Html.TextArea("Note","",4,1, new { @class = "form-control" })</td>
-                                        <td>Last update <br />January 2018</td>
-                                        <td>@Html.ActionLink("Generate", "GeneraReport", "RptHouseManagement", new { id = riga.id }, new { @class = "btn btn-primary",@style="float:right" })</td>
-                                        
-                                    </tr>
-                                    }
 
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.table-responsive -->
-                    </div>
-                    <!-- /.panel-body -->
-              
+        <!-- /.panel-heading -->
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width:200px">House</th>
+                            <th style="width:100px">Year</th>
+                            <th style="width:200px">Month</th>
+                            <th style="width:800px">Note</th>
+                            <th>Last update</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var riga in Model.LstHouses)
+                        {
+                            <tr>
+                                <td>@riga.nickname<input id="HiddenId" runat="server" type="hidden" value="@riga.id" /></td>
+                                <td>
+                                    @Html.DropDownList("Year", Model.LstYears, new { @class = "form-control", @Id = "CboYear" })
+                                </td>
+                                <td>
+                                    @Html.DropDownList("Month", Model.LstMonths, new { @class = "form-control", @Id = "CboMonth" })
+                                </td>
+                                <td>@Html.TextArea("Note", "", 4, 1, new { @class = "form-control", @Id = "TxtNote" })</td>
+                                <td>Last update <br />January 2018</td>
+                                <td> @Html.ActionLink("Generate", "GeneraReport", "RptHouseManagement", null, new { onclick = "GoToGeneraReport(this)", @class = "btn btn-primary", @style = "float:right", @href="#" })</td>
 
-         
-            <!-- /.panel-body -->
-        
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+        <!-- /.panel-body -->
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-12 -->

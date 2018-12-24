@@ -185,6 +185,7 @@
     </Compile>
     <Compile Include="Classes\AICBBasePageManager.cs" />
     <Compile Include="Classes\LoginPageManager.cs" />
+    <Compile Include="Classes\RptHouseManagementManager.cs" />
     <Compile Include="Classes\TemplateDetailPageManager.cs" />
     <Compile Include="Classes\TrackManagement2PageManager.cs" />
     <Compile Include="Classes\TrackManagementPageManager.cs" />
@@ -290,6 +291,7 @@
       <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\ErroreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RptHouseManagementController.cs" />
     <Compile Include="Global.asax.cs">
@@ -302,6 +304,7 @@
     <Compile Include="masterpages\ChatBotGskAdm.Master.designer.cs">
       <DependentUpon>ChatBotGskAdm.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Errore\IndexViewModel.cs" />
     <Compile Include="Models\RptHouseManagement\IndexViewModel.cs" />
     <Compile Include="Models\Shared\BaseViewModel.cs" />
     <Compile Include="Models\Shared\HeaderViewModel.cs" />
@@ -553,6 +556,7 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_LateralMenu.cshtml" />
     <Content Include="Views\RptHouseManagement\Index.cshtml" />
+    <Content Include="Views\Errore\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

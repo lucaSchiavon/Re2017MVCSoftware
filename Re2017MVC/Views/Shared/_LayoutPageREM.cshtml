@@ -49,51 +49,55 @@
                 <div id="page-wrapper">
                     @RenderBody()
                 </div>
+
                 <!-- /#page-wrapper -->
             </div>
             <!-- /#wrapper -->
             <!-- jQuery -->
+            <!--vecchia posizione javascript-->
+          
             @Scripts.Render("~/bundles/REMJs")
             @*<script src="../vendor/DropzoneJs_scripts/jquery.min.js"></script>
-            <script src="../vendor/DropzoneJs_scripts/dropzone.js"></script>*@
+        <script src="../vendor/DropzoneJs_scripts/dropzone.js"></script>*@
             @*<link href="../vendor/DropzoneJs_scripts/dropzone.css" rel="stylesheet" />*@
-        <link rel="stylesheet" href="../vendor/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
+            <link rel="stylesheet" href="../vendor/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
             <script type="text/javascript" src="../vendor/source/jquery.fancybox.pack.js?v=2.1.7"></script>
+            @RenderSection("scripts", required: false)
             <!-- Bootstrap Core JavaScript -->
             @*<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>*@
 
 
             @*<script type="text/javascript" src="/vendor/plugin/cookies/jquery.cookie.js"></script>*@
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $(".fancybox").fancybox();
-                    $(".various").fancybox({
-                        maxWidth: 600,
-                        maxHeight: 600,
-                        fitToView: false,
-                        width: '70%',
-                        height: '48%',
-                        autoSize: false,
-                        closeClick: false,
-                        openEffect: 'none',
-                        closeEffect: 'none',
-                        afterClose: function (instance, slide) { __doPostBack(); }
-                    });
+           <script type="text/javascript">
+            $(document).ready(function () {
+                $(".fancybox").fancybox();
+                $(".various").fancybox({
+                    maxWidth: 600,
+                    maxHeight: 600,
+                    fitToView: false,
+                    width: '70%',
+                    height: '48%',
+                    autoSize: false,
+                    closeClick: false,
+                    openEffect: 'none',
+                    closeEffect: 'none',
+                    afterClose: function (instance, slide) { __doPostBack(); }
                 });
-                function CreateGuid() {
-                    function _p8(s) {
-                        var p = (Math.random().toString(16) + "000000000").substr(2, 8);
-                        return s ? "-" + p.substr(0, 4) + "-" + p.substr(4, 4) : p;
-                    }
-                    return _p8() + _p8(true) + _p8(true) + _p8();
+            });
+            function CreateGuid() {
+                function _p8(s) {
+                    var p = (Math.random().toString(16) + "000000000").substr(2, 8);
+                    return s ? "-" + p.substr(0, 4) + "-" + p.substr(4, 4) : p;
                 }
-            </script>
+                return _p8() + _p8(true) + _p8(true) + _p8();
+            }
+        </script>
 
 
 
 
             <!-- Metis Menu Plugin JavaScript -->
-        @*<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+            @*<script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
 
 
@@ -101,8 +105,8 @@
         <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
         <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>*@
 
-        <!-- Custom Theme JavaScript -->
-        @*<script src="../dist/js/sb-admin-2.js"></script>
+            <!-- Custom Theme JavaScript -->
+            @*<script src="../dist/js/sb-admin-2.js"></script>
 
         <script src="../vendor/tagsInput/bootstrap-tagsinput.min.js"></script>*@
 
@@ -110,7 +114,7 @@
         </div>
 
     </form>
-   
+ 
     @*@Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/JavascriptREM")

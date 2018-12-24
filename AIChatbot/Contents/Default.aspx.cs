@@ -20,6 +20,7 @@ namespace AQuest.ChatBotGsk.PigeonCms.pgn_content.Contents
         {
             try
             {
+               
                 ////registra in fondo alla pagina lo script js per le funzionalità jquery della tabella
                 AppendJsForChart();
                 //AppendJqeryScriptForTable();
@@ -32,7 +33,7 @@ namespace AQuest.ChatBotGsk.PigeonCms.pgn_content.Contents
             {
                 PrintError(ex);
             }
-
+          
         }
 
         #region Gestione lightbox

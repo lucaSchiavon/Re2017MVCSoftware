@@ -16,39 +16,112 @@ namespace Re2017MVC.Controllers
         // GET: RptHouseManagement
         public ActionResult Index()
         {
+        //    var vm = new IndexViewModel();
+        //    vm.UtenteCorrente = LoginUsr;
+        //    vm.HeaderVM = new HeaderViewModel
+        //    {
+        //        UtenteCorrente = vm.UtenteCorrente,
+        //        LateralMenuVM = new LateralMenuViewModel()
+                
+        //};
+
+        //    //recupero dati...
+        //    TrackManagement2PageManager ObjTrackManagement2PageManager = new TrackManagement2PageManager();
+        //    List<HouseDTO> LstHouses=  ObjTrackManagement2PageManager.GetHouse();
+        //    vm.LstHouses = LstHouses;
+        //    //List<string> LstYears = new List<string>() {"2017","2018" };
+        //    List<SelectListItem> LstYears = new List<SelectListItem>();
+        //    //carica da 2017 all'anno attuale e mette selezionato l'anno corrente
+
+        //    LstYears.Add(new SelectListItem { Text="2017",Value="2017" });
+        //    LstYears.Add(new SelectListItem { Text = "2018", Value = "2018", Selected=true });
+        //    //carica tutti i mesi
+        //    //List<SelectListItem> LstMonths = new List<SelectListItem>();
+        //    //LstMonths.Add(new SelectListItem { Text = "January", Value = "1", Selected = true });
+        //    //LstMonths.Add(new SelectListItem { Text = "February", Value = "2" });
+
+           
+        //    vm.LstYears = GetLstYearsForCombo();
+        //    vm.LstMonths = GetLstMonthsForCombo();
+            return View(InitializeIndexView());
+           
+        }
+        public ActionResult GeneraReport(int Id,string Year,string Month,string Note)
+        {
+            
+            RptHouseManagementManager ObjRptHouseManagementManager = new RptHouseManagementManager();
+            NewReportInputDto ObjNewReportInputDto = new NewReportInputDto();
+            ObjNewReportInputDto.year = Year;
+            ObjNewReportInputDto.month = Month;
+            ObjNewReportInputDto.notes = Note;
+            IndexViewModel vm = InitializeIndexView();
+            try
+            {
+                ObjRptHouseManagementManager.NewReport(ObjNewReportInputDto, Id);
+                //throw new Exception("errore colossale");
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Index","Errore",new { @Errore=ex.Message });
+            }
+               
+           
+                //valorizza
+             
+           
+
+           
+           // return View("Index",vm);
+
+        }
+
+        public ActionResult Errore()
+        {
             var vm = new IndexViewModel();
             vm.UtenteCorrente = LoginUsr;
             vm.HeaderVM = new HeaderViewModel
             {
                 UtenteCorrente = vm.UtenteCorrente,
                 LateralMenuVM = new LateralMenuViewModel()
-                
-        };
+
+            };
+            return View(vm);
+        }
+
+            #region "rutine private"
+            private IndexViewModel InitializeIndexView()
+        {
+            var vm = new IndexViewModel();
+            vm.UtenteCorrente = LoginUsr;
+            vm.HeaderVM = new HeaderViewModel
+            {
+                UtenteCorrente = vm.UtenteCorrente,
+                LateralMenuVM = new LateralMenuViewModel()
+
+            };
 
             //recupero dati...
             TrackManagement2PageManager ObjTrackManagement2PageManager = new TrackManagement2PageManager();
-            List<HouseDTO> LstHouses=  ObjTrackManagement2PageManager.GetHouse();
+            List<HouseDTO> LstHouses = ObjTrackManagement2PageManager.GetHouse();
             vm.LstHouses = LstHouses;
             //List<string> LstYears = new List<string>() {"2017","2018" };
             List<SelectListItem> LstYears = new List<SelectListItem>();
             //carica da 2017 all'anno attuale e mette selezionato l'anno corrente
 
-            LstYears.Add(new SelectListItem { Text="2017",Value="2017" });
-            LstYears.Add(new SelectListItem { Text = "2018", Value = "2018", Selected=true });
+            LstYears.Add(new SelectListItem { Text = "2017", Value = "2017" });
+            LstYears.Add(new SelectListItem { Text = "2018", Value = "2018", Selected = true });
             //carica tutti i mesi
             //List<SelectListItem> LstMonths = new List<SelectListItem>();
             //LstMonths.Add(new SelectListItem { Text = "January", Value = "1", Selected = true });
             //LstMonths.Add(new SelectListItem { Text = "February", Value = "2" });
 
-           
+
             vm.LstYears = GetLstYearsForCombo();
             vm.LstMonths = GetLstMonthsForCombo();
-            return View(vm);
-           
+            return vm;
         }
-
-        #region "rutine private"
-
         private List<SelectListItem> GetLstYearsForCombo()
         {
             List<SelectListItem> LstYears = new List<SelectListItem>();

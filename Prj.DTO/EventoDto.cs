@@ -30,6 +30,5 @@ namespace Ls.Prj.DTO
         public string filePath { get; set; }
         public bool processed { get; set; }
 
-
     }
 }

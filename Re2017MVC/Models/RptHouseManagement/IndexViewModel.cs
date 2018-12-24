@@ -19,5 +19,6 @@ namespace Re2017MVC.Models.RptHouseManagement
         public List<SelectListItem> LstMonths;
         public string RptYear;
         public string RptMonth;
+        //public string ExceptionError;
     }
 }
