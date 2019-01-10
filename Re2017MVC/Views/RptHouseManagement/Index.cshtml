@@ -66,7 +66,7 @@
                                     @Html.DropDownList("Month", Model.LstMonths, new { @class = "form-control", @Id = "CboMonth" })
                                 </td>
                                 <td>@Html.TextArea("Note", "", 4, 1, new { @class = "form-control", @Id = "TxtNote" })</td>
-                                <td>Last update <br />January 2018</td>
+                                <td>@riga.messageToView <br />@(riga.monthToView + " " + riga.yearToView )</td>
                                 <td> @Html.ActionLink("Generate", "GeneraReport", "RptHouseManagement", null, new { onclick = "GoToGeneraReport(this)", @class = "btn btn-primary", @style = "float:right", @href="#" })</td>
 
                             </tr>

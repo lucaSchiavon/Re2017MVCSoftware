@@ -56,6 +56,7 @@
     <Compile Include="ApiDTO\ContainerDTO.cs" />
     <Compile Include="ErroreDto.cs" />
     <Compile Include="EventoDetailDto.cs" />
+    <Compile Include="HouseRptDto.cs" />
     <Compile Include="NewReportInputDto.cs" />
     <Compile Include="LandlordDto.cs" />
     <Compile Include="LoginCredentialsDto.cs" />

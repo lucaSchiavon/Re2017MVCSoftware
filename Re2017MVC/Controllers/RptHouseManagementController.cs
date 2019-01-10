@@ -104,8 +104,11 @@ namespace Re2017MVC.Controllers
 
             //recupero dati...
             TrackManagement2PageManager ObjTrackManagement2PageManager = new TrackManagement2PageManager();
-            List<HouseDTO> LstHouses = ObjTrackManagement2PageManager.GetHouse();
-            vm.LstHouses = LstHouses;
+            //List<HouseDTO> LstHouses = ObjTrackManagement2PageManager.GetHouse();
+            List<HouseRptDTO> LstHouseRpt = ObjTrackManagement2PageManager.GetHouseRpt();
+
+
+            vm.LstHouses = LstHouseRpt;
             //List<string> LstYears = new List<string>() {"2017","2018" };
             List<SelectListItem> LstYears = new List<SelectListItem>();
             //carica da 2017 all'anno attuale e mette selezionato l'anno corrente

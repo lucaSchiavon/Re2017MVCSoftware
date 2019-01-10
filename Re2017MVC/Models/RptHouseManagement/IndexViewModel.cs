@@ -14,7 +14,7 @@ namespace Re2017MVC.Models.RptHouseManagement
         {
 
         }
-        public List<HouseDTO> LstHouses;
+        public List<HouseRptDTO> LstHouses;
         public List<SelectListItem> LstYears;
         public List<SelectListItem> LstMonths;
         public string RptYear;

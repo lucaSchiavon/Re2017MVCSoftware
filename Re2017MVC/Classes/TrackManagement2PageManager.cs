@@ -360,7 +360,28 @@ namespace Re2017.Classes
         }
 
         #endregion
+        #region HouseRpt
 
+        public List<HouseRptDTO> GetHouseRpt()
+        {
+
+            List<HouseRptDTO> LstHouse = new List<HouseRptDTO>();
+            LstHouse = GetAsyncHouseRpt("houses/reports").Result;
+            return LstHouse;
+        }
+        async Task<List<HouseRptDTO>> GetAsyncHouseRpt(string path)
+        {
+            List<HouseRptDTO> Lst = null;
+
+            HttpResponseMessage response = await client.GetAsync(path, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                Lst = await response.Content.ReadAsAsync<List<HouseRptDTO>>();
+            }
+            return Lst;
+        }
+
+        #endregion
 
         #region Landlord
         public List<PartyDTO> GetParties()
