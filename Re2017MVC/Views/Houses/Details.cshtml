@@ -1,0 +1,211 @@
+﻿@model Re2017MVC.Models.Houses.IndexViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageREM.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>House</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.House.nickname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.housePhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.housePhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.zillowLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.zillowLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.purchasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.purchasePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.sqFeet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.sqFeet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.sqFeetPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.sqFeetPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.constructionYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.constructionYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.grossRent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.grossRent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.percVacancy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.percVacancy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.extimateAccountingExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.extimateAccountingExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.extimateCondoExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.extimateCondoExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.extimateInsuranceExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.extimateInsuranceExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.extimateMaintenanceExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.extimateMaintenanceExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.extimateProperyManagerExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.extimateProperyManagerExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.extimateUtilitiesExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.extimateUtilitiesExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.extimatePestControlExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.extimatePestControlExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.extimatePropertyTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.extimatePropertyTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.closingCosts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.closingCosts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.titleCompanyCosts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.titleCompanyCosts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.agencyCosts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.agencyCosts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.House.otherClosingCosts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.House.otherClosingCosts)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.House.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

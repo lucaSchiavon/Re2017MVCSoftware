@@ -1,0 +1,217 @@
+﻿@model Re2017MVC.House
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPageREM.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>House</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nickname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.housePhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.housePhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zillowLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zillowLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.purchasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purchasePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sqFeet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sqFeet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sqFeetPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sqFeetPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.constructionYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.constructionYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grossRent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grossRent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.percVacancy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.percVacancy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extimateAccountingExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extimateAccountingExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extimateCondoExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extimateCondoExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extimateInsuranceExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extimateInsuranceExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extimateMaintenanceExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extimateMaintenanceExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extimateProperyManagerExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extimateProperyManagerExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extimateUtilitiesExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extimateUtilitiesExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extimatePestControlExpense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extimatePestControlExpense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extimatePropertyTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extimatePropertyTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.closingCosts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.closingCosts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titleCompanyCosts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titleCompanyCosts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.agencyCosts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.agencyCosts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.otherClosingCosts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.otherClosingCosts)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

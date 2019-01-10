@@ -21,7 +21,7 @@
                             <a href="#"><i class="fa fa-bank fa-fw"></i> Bank transactions<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="TrackManagement.aspx">Import/manage transaction</a>
+                                    <a href="/Contents/TrackManagement.aspx">Import/manage transaction</a>
                                 </li>
                                 <li>
                                     <a href="Templates.aspx">Manage templates</a>
@@ -62,7 +62,7 @@
                             <a href="#"><i class="fa fa-home fa-fw"></i> Houses<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="Houses.aspx">Select</a>
+                                    <a href="/houses">Select</a>
                                 </li>
                                 <li>
                                     <a href="HouseDetail.aspx">New</a>
@@ -73,15 +73,15 @@
                         <li>
                             <a href="#"><i class="fa fa-list-alt fa-fw"></i> Reports<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="Report1.aspx">Report 1</a>
-                                </li>
-                                <li>
+                                 <li>
+                                 <a href="/RptHouseManagement">Generate house rpt</a>
+                                 </li>
+                               <%-- <li>
                                     <a href="Report2.aspx">Report 2</a>
                                 </li>
                                  <li>
                                     <a href="Report3.aspx">Report 3</a>
-                                </li>
+                                </li>--%>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

@@ -78,6 +78,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -293,10 +294,12 @@
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\ErroreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HousesController.cs" />
     <Compile Include="Controllers\RptHouseManagementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="House.cs" />
     <Compile Include="masterpages\ChatBotGskAdm.Master.cs">
       <DependentUpon>ChatBotGskAdm.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,7 +307,9 @@
     <Compile Include="masterpages\ChatBotGskAdm.Master.designer.cs">
       <DependentUpon>ChatBotGskAdm.Master</DependentUpon>
     </Compile>
+    <Compile Include="Model1.cs" />
     <Compile Include="Models\Errore\IndexViewModel.cs" />
+    <Compile Include="Models\Houses\IndexViewModel.cs" />
     <Compile Include="Models\RptHouseManagement\IndexViewModel.cs" />
     <Compile Include="Models\Shared\BaseViewModel.cs" />
     <Compile Include="Models\Shared\HeaderViewModel.cs" />
@@ -350,6 +355,7 @@
     <Content Include="Public\Images\LogoREM.jpg" />
     <Content Include="Public\Images\LogoREM.png" />
     <Content Include="Public\Images\realestate.jpg" />
+    <Content Include="Public\Images\ZillowLogo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -487,6 +493,8 @@
     <Content Include="vendor\tagsInput\bootstrap-tagsinput.css" />
     <Content Include="vendor\tagsInput\bootstrap-tagsinput.js" />
     <Content Include="vendor\tagsInput\bootstrap-tagsinput.min.js" />
+    <Content Include="Views\Houses\Details.cshtml" />
+    <Content Include="Views\Houses\Edit.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -557,9 +565,13 @@
     <Content Include="Views\Shared\_LateralMenu.cshtml" />
     <Content Include="Views\RptHouseManagement\Index.cshtml" />
     <Content Include="Views\Errore\Index.cshtml" />
+    <Content Include="Views\Houses\Create.cshtml" />
+    <Content Include="Views\Houses\Delete.cshtml" />
+    <Content Include="Views\Houses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Houses\Partial\" />
     <Folder Include="Models\RptHouseManagement\Partial\" />
     <Folder Include="Public\Log\" />
     <Folder Include="Public\Photos\Temp\" />
