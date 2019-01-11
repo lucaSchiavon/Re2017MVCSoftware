@@ -81,7 +81,7 @@
                                     <tr>
                                         <th>Description</th>       
                                         <th style="width: 30px">Enabled</th>
-                                        <th data-sortable="false" style="width:200px"></th>
+                                        <th data-sortable="false" style="width:100px"></th>
                                     </tr>
                                   </thead>
                                 <tbody>

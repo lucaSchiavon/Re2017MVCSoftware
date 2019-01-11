@@ -48,7 +48,8 @@ namespace Re2017MVC.Controllers
         // GET: Houses/Create
         public ActionResult Create()
         {
-            return View();
+            var vm = InitializeIndexView();
+            return View(vm);
         }
 
         // POST: Houses/Create
@@ -56,16 +57,19 @@ namespace Re2017MVC.Controllers
         // Per ulteriori dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nickname,state,city,street,housePhoto,zillowLink,purchasePrice,sqFeet,sqFeetPrice,constructionYear,grossRent,percVacancy,extimateAccountingExpense,extimateCondoExpense,extimateInsuranceExpense,extimateMaintenanceExpense,extimateProperyManagerExpense,extimateUtilitiesExpense,extimatePestControlExpense,extimatePropertyTax,closingCosts,titleCompanyCosts,agencyCosts,otherClosingCosts")] House house)
+        public ActionResult Create([Bind(Include = "Id,nickname,state,city,street,housePhoto,zillowLink,purchasePrice,sqFeet,sqFeetPrice,constructionYear,grossRent,percVacancy,extimateAccountingExpense,extimateCondoExpense,extimateInsuranceExpense,extimateMaintenanceExpense,extimateProperyManagerExpense,extimateUtilitiesExpense,extimatePestControlExpense,extimatePropertyTax,closingCosts,titleCompanyCosts,agencyCosts,otherClosingCosts,enabled")] House house)
         {
+            var vm = InitializeIndexView();
+
             if (ModelState.IsValid)
             {
                 db.House.Add(house);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(house);
+            House Casa = db.House.Find(house.Id);
+            vm.House = Casa;
+            return View(vm);
         }
 
         // GET: Houses/Edit/5
@@ -92,7 +96,7 @@ namespace Re2017MVC.Controllers
         // Per ulteriori dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nickname,state,city,street,housePhoto,zillowLink,purchasePrice,sqFeet,sqFeetPrice,constructionYear,grossRent,percVacancy,extimateAccountingExpense,extimateCondoExpense,extimateInsuranceExpense,extimateMaintenanceExpense,extimateProperyManagerExpense,extimateUtilitiesExpense,extimatePestControlExpense,extimatePropertyTax,closingCosts,titleCompanyCosts,agencyCosts,otherClosingCosts")] House house)
+        public ActionResult Edit([Bind(Include = "Id,nickname,state,city,street,housePhoto,zillowLink,purchasePrice,sqFeet,sqFeetPrice,constructionYear,grossRent,percVacancy,extimateAccountingExpense,extimateCondoExpense,extimateInsuranceExpense,extimateMaintenanceExpense,extimateProperyManagerExpense,extimateUtilitiesExpense,extimatePestControlExpense,extimatePropertyTax,closingCosts,titleCompanyCosts,agencyCosts,otherClosingCosts,enabled")] House house)
         {
             if (ModelState.IsValid)
             {

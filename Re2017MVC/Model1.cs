@@ -16,6 +16,12 @@ namespace Re2017MVC
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modifica luca
+            modelBuilder.Entity<House>().HasKey(p => p.Id);
+            modelBuilder.Entity<House>()
+              .Property(e => e.Id)
+              .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            //---------------------
             modelBuilder.Entity<House>()
                 .Property(e => e.street)
                 .IsFixedLength();

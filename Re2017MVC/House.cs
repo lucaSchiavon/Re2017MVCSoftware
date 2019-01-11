@@ -79,5 +79,7 @@ namespace Re2017MVC
 
         [Column(TypeName = "money")]
         public decimal? otherClosingCosts { get; set; }
+      
+        public bool? enabled { get; set; }
     }
 }
