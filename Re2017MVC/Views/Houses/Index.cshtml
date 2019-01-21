@@ -18,12 +18,12 @@
 
     <div class="col-lg-12">
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                List of house...
-            </div>
+        <div class="panel panel-default" style="min-width:630px">
+            @*<div class="panel-heading">
+                List of houses...
+            </div>*@
             <!-- /.panel-heading -->
-            <div class="panel-body">
+            <div class="panel-body" >
 
                 <div class="row">
                     <div class="col-lg-12 text-right">
@@ -53,7 +53,7 @@
             {
                 <tr class="gradeA odd" role="row">
                     <td><img src="@item.housePhoto" width="100px" /></td>
-                    <td> @Html.ActionLink((item.street + ", " + item.city + " (" + item.state + ")"), "Details", new { id = item.Id })</td>
+                    <td> @Html.ActionLink((item.address + ", " + item.state + " (" + item.country + ")"), "Details", new { id = item.Id })</td>
                     <td> @(((decimal)item.purchasePrice).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
                     <td><a href="@item.zillowLink" target="_blank"><img src="~/Public/Images/ZillowLogo.jpg" width="100px" /></a></td>
                     <td>@((bool)item.enabled ? "YES" : "NO")</td>

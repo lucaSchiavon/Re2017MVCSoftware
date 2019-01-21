@@ -1,222 +1,342 @@
 ﻿@model Re2017MVC.Models.Houses.IndexViewModel
-
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_LayoutPageREM.cshtml";
 }
 
-<h2>Create</h2>
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>House</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-      
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.nickname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.nickname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.nickname, "", new { @class = "text-danger" })
-            </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="page-header">New house</h1>
         </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                @*<div class="panel-heading">
+                       Update data:
+                    </div>*@
+                <div class="panel-body">
+                    <div class="row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                      
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="alert alert-info">
+                                        <h4>House info:</h4>
+                                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.state, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.state, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.state, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label> Nickname</label>
+                                    @Html.EditorFor(model => model.House.nickname, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.nickname, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.city, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.city, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.city, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    @Html.EditorFor(model => model.House.country, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.country, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.street, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.street, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.street, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                <div class="form-group">
+                                    <label>State</label>
+                                    @Html.EditorFor(model => model.House.state, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.state, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label> City</label>
+                                    @*@Html.EditorFor(model => model.House.nickname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.House.nickname, "", new { @class = "text-danger" })*@
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.housePhoto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.housePhoto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.housePhoto, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    @Html.EditorFor(model => model.House.address, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.address, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.zillowLink, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.zillowLink, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.zillowLink, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Rooms</label>
+                                    @Html.EditorFor(model => model.House.rooms, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.rooms, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.purchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.purchasePrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.purchasePrice, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Bathrooms</label>
+                                    @Html.EditorFor(model => model.House.bathrooms, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.bathrooms, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.sqFeet, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.sqFeet, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.sqFeet, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.sqFeetPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.sqFeetPrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.sqFeetPrice, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>House photo</label>
+                                    @Html.EditorFor(model => model.House.housePhoto, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.housePhoto, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.constructionYear, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.constructionYear, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.constructionYear, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Zillow link</label>
+                                    @Html.EditorFor(model => model.House.zillowLink, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.zillowLink, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.grossRent, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.grossRent, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.grossRent, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Purchase date</label>
+                                    @Html.EditorFor(model => model.House.purchaseDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.purchaseDate, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.percVacancy, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.percVacancy, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.percVacancy, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Selling date</label>
+                                    @Html.EditorFor(model => model.House.sellingDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.sellingDate, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.extimateAccountingExpense, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.extimateAccountingExpense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.extimateAccountingExpense, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Purchase price</label>
+                                    @Html.EditorFor(model => model.House.purchasePrice, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.purchasePrice, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.extimateCondoExpense, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.extimateCondoExpense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.extimateCondoExpense, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Sq. feet</label>
+                                    @Html.EditorFor(model => model.House.sqFeet, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.sqFeet, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.extimateInsuranceExpense, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.extimateInsuranceExpense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.extimateInsuranceExpense, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Sq. feet price</label>
+                                    @Html.EditorFor(model => model.House.sqFeetPrice, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.sqFeetPrice, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.extimateMaintenanceExpense, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.extimateMaintenanceExpense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.extimateMaintenanceExpense, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Construction year</label>
+                                    @Html.EditorFor(model => model.House.constructionYear, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.constructionYear, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.extimateProperyManagerExpense, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.extimateProperyManagerExpense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.extimateProperyManagerExpense, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.extimateUtilitiesExpense, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.extimateUtilitiesExpense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.extimateUtilitiesExpense, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="alert alert-info">
+                                        <h4>Income:</h4>
+                                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.extimatePestControlExpense, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.extimatePestControlExpense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.extimatePestControlExpense, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Gross rent</label>
+                                    @Html.EditorFor(model => model.House.grossRent, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.grossRent, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.extimatePropertyTax, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.extimatePropertyTax, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.extimatePropertyTax, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Perc. vacancy</label>
+                                    @Html.EditorFor(model => model.House.percVacancy, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.percVacancy, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.closingCosts, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.closingCosts, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.closingCosts, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="alert alert-info">
+                                        <h4>Extimate expenses:</h4>
+                                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.titleCompanyCosts, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.titleCompanyCosts, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.titleCompanyCosts, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Account</label>
+                                    @Html.EditorFor(model => model.House.extimateAccountingExpense, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.extimateAccountingExpense, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.agencyCosts, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.agencyCosts, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.agencyCosts, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Condo</label>
+                                    @Html.EditorFor(model => model.House.extimateCondoExpense, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.extimateCondoExpense, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.House.otherClosingCosts, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House.otherClosingCosts, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.otherClosingCosts, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Insurance</label>
+                                    @Html.EditorFor(model => model.House.extimateInsuranceExpense, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.extimateInsuranceExpense, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Maintenance</label>
+                                    @Html.EditorFor(model => model.House.extimateMaintenanceExpense, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.extimateMaintenanceExpense, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>property manager</label>
+                                    @Html.EditorFor(model => model.House.extimatePropertyManagerExpense, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.extimatePropertyManagerExpense, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Utilities</label>
+                                    @Html.EditorFor(model => model.House.extimateUtilitiesExpense, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.extimateUtilitiesExpense, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Pest control</label>
+                                    @Html.EditorFor(model => model.House.extimatePestControlExpense, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.extimatePestControlExpense, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Property tax</label>
+                                    @Html.EditorFor(model => model.House.extimatePropertyTax, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.extimatePropertyTax, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="alert alert-info">
+                                        <h4>Extimate costs:</h4>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Closing</label>
+                                    @Html.EditorFor(model => model.House.closingCosts, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.closingCosts, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Title company</label>
+                                    @Html.EditorFor(model => model.House.titleCompanyCosts, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.titleCompanyCosts, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Agency</label>
+                                    @Html.EditorFor(model => model.House.agencyCosts, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.agencyCosts, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Other closing</label>
+                                    @Html.EditorFor(model => model.House.otherClosingCosts, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.otherClosingCosts, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="alert alert-info">
+                                        <h4>Other:</h4>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Enabled</label>
+
+                                    @Html.DropDownListFor(model => model.House.enabled, Model.LstYesNo, new { @class = "form-control", @Id = "CboEnabled" })
+
+                                    @Html.ValidationMessageFor(model => model.House.enabled, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Note</label>
+
+                                    @Html.TextAreaFor(model => model.House.notes, 8, 1, new { @class = "form-control Desc2" });
+                                    @*@Html.TextAreaFor(model => model.House.notes, new { htmlAttributes = new { @class = "form-control Desc2" } })*@
+
+                                    @Html.ValidationMessageFor(model => model.House.notes, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                            <div class="col-lg-12" style="text-align:right">
+
+
+                                @Html.ActionLink("Back", "Index", "Houses", new { @class = "btn btn-primary" });
+                                &nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input type="submit" value="Create" class="btn btn-primary" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+}

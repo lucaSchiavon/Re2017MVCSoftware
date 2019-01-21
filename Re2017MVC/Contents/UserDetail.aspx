@@ -22,7 +22,7 @@
     
                  <div class="row">
                 <div class="col-lg-6">
-                    <h1 class="page-header">User's Form</h1>
+                    <h1 class="page-header"> <asp:Literal ID="LitUser" runat="server"></asp:Literal></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -30,9 +30,9 @@
                 <div class="row">
                 <div class="col-lg-6">
                          <div class="panel panel-default">
-                        <div class="panel-heading">
-                         <asp:Literal ID="LitUser" runat="server"></asp:Literal>
-                        </div>
+                       <%-- <div class="panel-heading">
+                        
+                        </div>--%>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">

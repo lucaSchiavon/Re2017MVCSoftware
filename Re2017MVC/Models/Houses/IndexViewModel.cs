@@ -14,7 +14,11 @@ namespace Re2017MVC.Models.Houses
         {
 
         }
-        public List<Re2017MVC.House> LstHouses;
-        public Re2017MVC.House House;
+       // public List<Re2017MVC.House> LstHouses;
+        public List<UsaHouseDTO> LstHouses;
+        //public Re2017MVC.House House;
+        public UsaHouseDTO HouseDTO;
+        public Ls.Prj.Entity.House House;
+        public List<SelectListItem> LstYesNo;
     }
 }

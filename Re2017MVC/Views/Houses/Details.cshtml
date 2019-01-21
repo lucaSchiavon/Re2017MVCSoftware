@@ -1,211 +1,363 @@
 ﻿@model Re2017MVC.Models.Houses.IndexViewModel
+@using System.Globalization;
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutPageREM.cshtml";
 }
 
-<h2>Details</h2>
+<style>
+
+    dd, dt {
+        line-height: 2.428571;
+    }
+</style>
 
 <div>
-    <h4>House</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.House.nickname)
-        </dt>
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="page-header"> @Html.DisplayFor(model => model.HouseDTO.nickname)</h1>
+        </div>
+        <div class="col-lg-6">
+            <div style="text-align:center;padding:30px"><img src="@Html.DisplayFor(model => model.HouseDTO.housePhoto)" width="300px" /></div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
 
-        <dd>
-            @Html.DisplayFor(model => model.House.nickname)
-        </dd>
+        <div class="col-lg-12">
+            <div class="panel-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#home" data-toggle="tab">General data</a>
+                    </li>
+                    <li>
+                        <a href="#profile" data-toggle="tab">Profile</a>
+                    </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.state)
-        </dt>
+                </ul>
 
-        <dd>
-            @Html.DisplayFor(model => model.House.state)
-        </dd>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="home">
+                      
+                        <div class="row">
+                            <div class="col-lg-12">
+                                
+                                <div class="col-lg-6">
+                                    <h4>(Main and extimate house's data)</h4>
+                                    <div class="alert alert-success">
+                                        <h4>House info:</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.city)
-        </dt>
+                                <div class="col-lg-6">
+                                    <table class="table table-striped table-bordered table-hover">
 
-        <dd>
-            @Html.DisplayFor(model => model.House.city)
-        </dd>
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-weight:bold;width:150px">Nickname</td>
+                                                <td style="width: 400px"> @Html.DisplayFor(model => model.HouseDTO.nickname)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Country</td>
+                                                <td> @Html.DisplayFor(model => model.HouseDTO.country)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">State</td>
+                                                <td>@Html.DisplayFor(model => model.HouseDTO.state)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Street</td>
+                                                <td>@Html.DisplayFor(model => model.HouseDTO.address)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Rooms</td>
+                                                <td>@Html.DisplayFor(model => model.HouseDTO.rooms)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Bathrooms</td>
+                                                <td>@Html.DisplayFor(model => model.HouseDTO.bathrooms)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Purchase price</td>
+                                                <td>@(((decimal)Model.HouseDTO.purchasePrice).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Purchase date</td>
+                                                <td>@((Model.HouseDTO.purchaseDate != null) ? (((DateTime)Model.HouseDTO.purchaseDate).ToString(CultureInfo.CreateSpecificCulture("en-US"))) : "") </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Selling date</td>
+                                                <td>@((Model.HouseDTO.sellingDate != null) ? (((DateTime)Model.HouseDTO.sellingDate).ToString(CultureInfo.CreateSpecificCulture("en-US"))) : "")  </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Sq feet</td>
+                                                <td> @Html.DisplayFor(model => model.HouseDTO.sqFeet)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Sq feet price</td>
+                                                <td>@(((decimal)Model.HouseDTO.sqFeetPrice).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Construction year</td>
+                                                <td>@Html.DisplayFor(model => model.HouseDTO.constructionYear)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Notes</td>
+                                                <td>@Html.DisplayFor(model => model.HouseDTO.notes)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.street)
-        </dt>
+                                <div class="col-lg-6">
+                                    <div class="alert alert-success">
+                                        <h4>Income:</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 150px"></th>
+                                                <th style="width: 200px">MONTH</th>
+                                                <th style="width: 200px">YEAR</th>
 
-        <dd>
-            @Html.DisplayFor(model => model.House.street)
-        </dd>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-weight:bold">Gross rent</td>
+                                                <td>@(((decimal)Model.HouseDTO.grossRent).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)(Model.HouseDTO.annualGrossRent)).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">% vacancy @( "(" + Model.HouseDTO.percVacancy + "%)")</td>
+                                                <td>@(((decimal)Model.HouseDTO.monthVacancy).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                                <td>@(((decimal)Model.HouseDTO.annualVacancy).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Operating income</td>
+                                                <td>@(((decimal)Model.HouseDTO.monthOperatingIncome).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                                <td>@(((decimal)Model.HouseDTO.annualOperatingIncome).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Gross yield</td>
+                                                <td></td>
+                                                <td>@(Model.HouseDTO.grossYeld + "%")</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.housePhoto)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.House.housePhoto)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.zillowLink)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.House.zillowLink)
-        </dd>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <div class="alert alert-success">
+                                        <h4>Extimate expenses:</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 150px"></th>
+                                                <th style="width: 200px">MONTH</th>
+                                                <th style="width: 200px">YEAR</th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.purchasePrice)
-        </dt>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-weight:bold">Accounting</td>
+                                                <td>@(((decimal)Model.HouseDTO.extimateAccountingExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualExtimateAccountingExpense * 12).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Condo</td>
+                                                <td>@(((decimal)Model.HouseDTO.extimateCondoExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualExtimateCondoExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Insurance</td>
+                                                <td>@(((decimal)Model.HouseDTO.extimateInsuranceExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualExtimateInsuranceExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Maintenance</td>
+                                                <td>@(((decimal)Model.HouseDTO.extimateMaintenanceExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualExtimateMaintenanceExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Propery manager</td>
+                                                <td>@(((decimal)Model.HouseDTO.extimatePropertyManagerExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualExtimateProperyManagerExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Utilities</td>
+                                                <td>@(((decimal)Model.HouseDTO.extimateUtilitiesExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualExtimateUtilitiesExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Pest control</td>
+                                                <td>@(((decimal)Model.HouseDTO.extimatePestControlExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualExtimatePestControlExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Property tax</td>
+                                                <td>@(((decimal)Model.HouseDTO.extimatePropertyTax).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualExtimatePropertyTax).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">---------------------------</td>
+                                                <td>---------------------------</td>
+                                                <td>---------------------------</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Total operating expenses</td>
+                                                <td>@(((decimal)Model.HouseDTO.totalOperatingExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.totalAnnualOperatingExpense).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Op exp on Op income</td>
+                                                <td>@(Model.HouseDTO.opExpOnOpIncome + "%")</td>
+                                                <td>@(Model.HouseDTO.annualOpExpOnOpIncome + "%")</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Net operating income</td>
+                                                <td>@(((decimal)Model.HouseDTO.netOperatingIncome).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                                <td>@(((decimal)Model.HouseDTO.annualNetOperatingIncome).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Net operating income %</td>
+                                                <td></td>
+                                                <td>@(Model.HouseDTO.NetOperatingIncomePerc + "%")</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.House.purchasePrice)
-        </dd>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <div class="alert alert-success">
+                                        <h4>Closing costs:</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <table class="table table-striped table-bordered table-hover">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.sqFeet)
-        </dt>
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-weight:bold;width:150px">Closing</td>
+                                                <td style="width:200px"></td>
+                                                <td style="width:200px">@(((decimal)Model.HouseDTO.closingCosts).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Title company</td>
+                                                <td></td>
+                                                <td>@(((decimal)Model.HouseDTO.titleCompanyCosts).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Agency</td>
+                                                <td></td>
+                                                <td>@(((decimal)Model.HouseDTO.agencyCosts).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Other closing</td>
+                                                <td></td>
+                                                <td>@(((decimal)Model.HouseDTO.otherClosingCosts).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:bold">Total purchase price</td>
+                                                <td></td>
+                                                <td>@(((decimal)Model.HouseDTO.totalPurchasePrice).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))) </td>
+                                            </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.House.sqFeet)
-        </dd>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <div class="alert alert-success">
+                                        <h4>
+                                            final net operating income:
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-6">
+                                                <table class="table table-striped table-bordered table-hover">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.sqFeetPrice)
-        </dt>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="font-weight:bold;width:150px">Final net income %</td>
+                                                            <td style="width:200px"></td>
+                                                            <td style="width:200px;font-weight:bold">@(Model.HouseDTO.finalNetIncome + "%")</td>
+                                                        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.House.sqFeetPrice)
-        </dd>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.House.constructionYear)
-        </dt>
+                                    @*<p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.House.Id }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>*@
+                                </div>
+                                <div class="tab-pane fade" id="profile">
+                                    <h4>Profile Tab</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="tab-pane fade" id="messages">
+                                    <h4>Messages Tab</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="tab-pane fade" id="settings">
+                                    <h4>Settings Tab</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.House.constructionYear)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.grossRent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.grossRent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.percVacancy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.percVacancy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.extimateAccountingExpense)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.extimateAccountingExpense)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.extimateCondoExpense)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.extimateCondoExpense)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.extimateInsuranceExpense)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.extimateInsuranceExpense)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.extimateMaintenanceExpense)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.extimateMaintenanceExpense)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.extimateProperyManagerExpense)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.extimateProperyManagerExpense)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.extimateUtilitiesExpense)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.extimateUtilitiesExpense)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.extimatePestControlExpense)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.extimatePestControlExpense)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.extimatePropertyTax)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.extimatePropertyTax)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.closingCosts)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.closingCosts)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.titleCompanyCosts)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.titleCompanyCosts)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.agencyCosts)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.agencyCosts)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.House.otherClosingCosts)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.House.otherClosingCosts)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.House.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

@@ -49,9 +49,9 @@
                 <div class="col-lg-12">
                      
                     <div class="panel panel-default">
-                        <div class="panel-heading">
+                      <%--  <div class="panel-heading">
                             List of Templates...
-                        </div>
+                        </div>--%>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
            <%--                  <div class="row">

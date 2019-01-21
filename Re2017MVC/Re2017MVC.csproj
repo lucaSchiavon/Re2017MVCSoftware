@@ -192,6 +192,7 @@
     <Compile Include="Classes\TrackManagementPageManager.cs" />
     <Compile Include="Classes\UploadTransactionsPageManager.cs" />
     <Compile Include="Classes\UserDetailPageManager.cs" />
+    <Compile Include="Classes\USAHousesPageManager.cs" />
     <Compile Include="Classes\UserPageManager.cs" />
     <Compile Include="Contents\Ajax.aspx.cs">
       <DependentUpon>Ajax.aspx</DependentUpon>
@@ -346,6 +347,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="js\Inizializzazione.js" />
     <Content Include="js\Login.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\TrackManagement.js" />
@@ -368,6 +370,7 @@
     <Content Include="less\variables.less" />
     <Content Include="masterpages\ChatBotGskAdm.Master" />
     <Content Include="Public\Images\Temp\e0bef6b0-f13a-050a-3056-ec2a9eb633c0" />
+    <None Include="Properties\PublishProfiles\Re2017MVC20190115055954 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

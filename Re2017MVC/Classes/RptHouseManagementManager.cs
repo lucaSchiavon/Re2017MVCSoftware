@@ -41,7 +41,8 @@ namespace Re2017.Classes
         {
 
             var myContent = JsonConvert.SerializeObject(ObjNewReportInputDto);
-            var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+            //var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(ObjNewReportInputDto.notes);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             ///houses/{houseId}/reports/years/{year}/months/{month}

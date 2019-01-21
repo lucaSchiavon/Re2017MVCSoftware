@@ -20,6 +20,13 @@ lucafreehostasp
 pwd:
 a1b2c3d4
 
+RE2017 AZURE
+http://re2017mvc20190115055954.azurewebsites.net
+userid: liveyourdreamsrl@gmail.com
+password: v2t1U872S6
+
+
+
 
 
 
