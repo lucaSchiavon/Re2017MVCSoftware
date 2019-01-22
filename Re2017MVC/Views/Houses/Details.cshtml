@@ -11,6 +11,14 @@
     dd, dt {
         line-height: 2.428571;
     }
+  
+    
+    .HouseImgShadow {
+        -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 8px 8px 20px -3px #777;
+        width:300px
+    }
 </style>
 
 <div>
@@ -19,8 +27,10 @@
             <h1 class="page-header"> @Html.DisplayFor(model => model.HouseDTO.nickname)</h1>
         </div>
         <div class="col-lg-6">
-            <div style="text-align:center;padding:30px"><a id="single_image" class="fancybox" href="@(Model.HouseDTO.housePhoto==null ? "javascript:void(0);"  : Model.HouseDTO.housePhotoLnk)"><img src="@Model.HouseDTO.housePhotoLnk" width="300px" /></a></div>
-        </div>
+        
+                <div style="text-align:center;padding:30px"><a id="single_image" class="fancybox" href="@(Model.HouseDTO.housePhoto==null ? "javascript:void(0);"  : Model.HouseDTO.housePhotoLnk)"><img src="@Model.HouseDTO.housePhotoLnk" width="300px" class="HouseImgShadow"/></a></div>
+               
+            </div>
         <!-- /.col-lg-12 -->
     </div>
     <div class="row">

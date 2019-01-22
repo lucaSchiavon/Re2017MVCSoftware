@@ -22,7 +22,8 @@ namespace Ls.Prj.DTO
         public int? bathrooms { get; set; }
         [Column(TypeName = "money")]
         public decimal? closingCosts { get; set; }
-        public int? constructionYear { get; set; }
+        //public int? constructionYear { get; set; }
+        public string constructionYear { get; set; }
         [Required(ErrorMessage = "country is required.")]
         [StringLength(255)]
         public string country { get; set; }
@@ -132,7 +133,7 @@ namespace Ls.Prj.DTO
         [Column(TypeName = "money")]
         public decimal? purchasePrice { get; set; }
         public int? rooms { get; set; }
-        public DateTime sellingDate { get; set; }
+        public DateTime? sellingDate { get; set; }
         public int? sqFeet { get; set; }
         [DefaultValue(0)]
         //[Column(TypeName = "money")]

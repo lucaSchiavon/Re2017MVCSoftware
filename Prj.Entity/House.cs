@@ -18,7 +18,8 @@ namespace Ls.Prj.Entity
         public int? bathrooms { get; set; }
         [Column(TypeName = "money")]
         public decimal? closingCosts { get; set; }
-        public int? constructionYear { get; set; }
+        //public int? constructionYear { get; set; }
+        public string constructionYear { get; set; }
         [Required(ErrorMessage = "country is required.")]
         [StringLength(255)]
         public string country { get; set; }

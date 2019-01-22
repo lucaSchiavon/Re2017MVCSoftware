@@ -25,6 +25,11 @@ http://re2017mvc20190115055954.azurewebsites.net
 userid: liveyourdreamsrl@gmail.com
 password: v2t1U872S6
 
+FTP:
+ftp://waws-prod-am2-233.ftp.azurewebsites.windows.net/site/wwwroot
+userName: Re2017MVC20190115055954\$Re2017MVC20190115055954 
+PWD thAyyh8J2WLw32GlJnZEvxeAR2g59ePZN2jTRX8tHBfaghESRRbPf3t1axLZ
+
 
 
 
