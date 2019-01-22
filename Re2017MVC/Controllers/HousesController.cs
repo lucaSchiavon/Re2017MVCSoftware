@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using Ls.Prj.DTO;
+using Ls.Prj.Utility;
 using Re2017.Classes;
 using Re2017MVC;
 using Re2017MVC.Models.Shared;
@@ -47,7 +48,7 @@ namespace Re2017MVC.Controllers
         public ActionResult Details(int? id)
         {
             var vm = InitializeIndexView();
-
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -62,6 +63,15 @@ namespace Re2017MVC.Controllers
             {
                 return HttpNotFound();
             }
+            string report1 = Utility.ReadSetting("Re2017ApiUrl") + "/houses/" + UsaHouseDTOObj.Id + "/reports/years/2018";
+            string report2 = Utility.ReadSetting("Re2017ApiUrl") + "/houses/" + UsaHouseDTOObj.Id + "/reports/years/2019";
+            HouseReportDTO ObjHouseReportDTO1 = new HouseReportDTO();
+            ObjHouseReportDTO1.ReportUrl = report1;
+            ObjHouseReportDTO1.Anno = "2018";
+            HouseReportDTO ObjHouseReportDTO2 = new HouseReportDTO();
+            ObjHouseReportDTO2.ReportUrl = report2;
+            ObjHouseReportDTO2.Anno = "2019";
+            vm.ReportsUrl = new List<HouseReportDTO>() { ObjHouseReportDTO1, ObjHouseReportDTO2 };
             vm.HouseDTO = UsaHouseDTOObj;
             //vm.House = house;
 
@@ -276,7 +286,7 @@ namespace Re2017MVC.Controllers
                     //{
                     if (property.GetValue(HouseObj, null) == null)
                     {
-                        property.SetValue(HouseObj, 1, null);
+                        property.SetValue(HouseObj, 0, null);
                     }
                 }
                 else if (property.PropertyType == typeof(bool?))
@@ -294,7 +304,7 @@ namespace Re2017MVC.Controllers
                     //{
                     if (property.GetValue(HouseObj, null) == null)
                     {
-                        property.SetValue(HouseObj, 1, null);
+                        property.SetValue(HouseObj, 0, null);
                     }
                 }
 

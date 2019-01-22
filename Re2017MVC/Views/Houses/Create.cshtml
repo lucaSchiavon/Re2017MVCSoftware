@@ -61,8 +61,8 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label> City</label>
-                                    @*@Html.EditorFor(model => model.House.nickname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House.nickname, "", new { @class = "text-danger" })*@
+                                    @Html.EditorFor(model => model.House.city, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.House.city, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
@@ -139,14 +139,14 @@
 
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            @*<div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Sq. feet price</label>
                                     @Html.EditorFor(model => model.House.sqFeetPrice, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.House.sqFeetPrice, "", new { @class = "text-danger" })
 
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Construction year</label>

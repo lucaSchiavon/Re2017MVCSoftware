@@ -22,6 +22,7 @@ namespace Ls.Prj.Entity
         [Required(ErrorMessage = "country is required.")]
         [StringLength(255)]
         public string country { get; set; }
+        public string city { get; set; }
         public bool? enabled { get; set; }
         [Column(TypeName = "money")]
         public decimal? extimateAccountingExpense { get; set; }
@@ -51,7 +52,7 @@ namespace Ls.Prj.Entity
         [Column(TypeName = "numeric")]
         public decimal? percVacancy { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? purchaseDate { get; set; }
         [Required(ErrorMessage = "purchase price is required.")]
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
@@ -59,12 +60,12 @@ namespace Ls.Prj.Entity
         public decimal? purchasePrice { get; set; }
         public int? rooms { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? sellingDate { get; set; }
         public int? sqFeet { get; set; }
         [DefaultValue(0)]
         [Column(TypeName = "money")]
-        public decimal? sqFeetPrice { get; set; }
+        //public decimal? sqFeetPrice { get; set; }
         [Required(ErrorMessage = "state is required.")]
         [StringLength(50)]
         public string state { get; set; }
@@ -72,27 +73,52 @@ namespace Ls.Prj.Entity
         public decimal? titleCompanyCosts { get; set; }
         public string zillowLink { get; set; }
         //public string city { get; set; }
+      //public string purchaseDateStr
+      //  {
+      //      get
+      //      {
+      //          string DateStr="1000-01-01";
+      //          if (this.purchaseDate != null)
+      //          {
+      //              DateStr = new DateTime(((DateTime)this.purchaseDate).Year, ((DateTime)this.purchaseDate).Month, ((DateTime)this.purchaseDate).Day).ToString("yyyy-MM-dd");
+      //          }
+                
+              
+      //          return DateStr;
+      //      }
+      //  }
+        //private string _sellingDateStr;
+        //public string sellingDateStr
+        //{
+        //    get
+        //    {
+        //        //string DateStr = "1000-01-01";
+        //        //if (this.sellingDate != null)
+        //        //{
+        //        //  DateStr = new DateTime(((DateTime)this.sellingDate).Year, ((DateTime)this.sellingDate).Month, ((DateTime)this.sellingDate).Day).ToString("yyyy-MM-dd");
+        //        //}
+
+        //        //return DateStr;
+        //        return _sellingDateStr;
+        //    }
+        //    set
+        //    {
+        //        string DateStr = "1000-01-01";
+        //        if (this.sellingDate != null)
+        //        {
+        //            _sellingDateStr = new DateTime(((DateTime)this.sellingDate).Year, ((DateTime)this.sellingDate).Month, ((DateTime)this.sellingDate).Day).ToString("yyyy-MM-dd");
+        //        }
+        //        else
+        //        {
+        //            _sellingDateStr = DateStr;
+        //        }
+        //    }
+        //    }
+
        
-        
-       
-        
-       
-       
-       
-        
-       
-        
-        
-        
-       
-        
-      
         //public decimal? extimateVacancyRate { get; set; }
-       
-        
-        
-        
-        
+
+
 
     }
 }

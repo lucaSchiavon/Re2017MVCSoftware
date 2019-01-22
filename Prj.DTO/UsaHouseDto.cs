@@ -26,6 +26,7 @@ namespace Ls.Prj.DTO
         [Required(ErrorMessage = "country is required.")]
         [StringLength(255)]
         public string country { get; set; }
+        public string city { get; set; }
         public bool? enabled { get; set; }
 
         [Column(TypeName = "money")]
@@ -134,8 +135,8 @@ namespace Ls.Prj.DTO
         public DateTime sellingDate { get; set; }
         public int? sqFeet { get; set; }
         [DefaultValue(0)]
-        [Column(TypeName = "money")]
-        public decimal? sqFeetPrice { get; set; }
+        //[Column(TypeName = "money")]
+        //public decimal? sqFeetPrice { get; set; }
         [Required(ErrorMessage = "state is required.")]
         [StringLength(50)]
         public string state { get; set; }
@@ -143,7 +144,18 @@ namespace Ls.Prj.DTO
         public decimal? titleCompanyCosts { get; set; }
         public string zillowLink { get; set; }
 
-
+        public double sqFeetPrice
+        {
+            get
+            {
+                double _sqFeetPrice = 0;
+                if (sqFeet != 0)
+                {
+                    _sqFeetPrice= Math.Round((double)(this.purchasePrice / this.sqFeet), 2);
+                }
+                return _sqFeetPrice;
+            }
+        }
         public decimal? monthVacancy
         {
             get
@@ -176,7 +188,12 @@ namespace Ls.Prj.DTO
         {
             get
             {
-                return Math.Round((double)((((this.grossRent * 12) - (((this.grossRent * 12) * this.percVacancy) / 100)) / this.purchasePrice)) * 100, 2);
+                double _grossYeld = 0;
+                if (purchasePrice != 0)
+                {
+                    _grossYeld= Math.Round((double)((((this.grossRent * 12) - (((this.grossRent * 12) * this.percVacancy) / 100)) / this.purchasePrice)) * 100, 2);
+                }
+                return _grossYeld;
             }
         }
         public decimal? totalOperatingExpense
@@ -190,33 +207,34 @@ namespace Ls.Prj.DTO
         {
             get
             {
-                return ((this.extimatePropertyTax + this.extimatePestControlExpense + this.extimateUtilitiesExpense + this.extimatePropertyManagerExpense + this.extimateMaintenanceExpense + this.extimateInsuranceExpense + this.extimateCondoExpense + this.extimateAccountingExpense) * 12);
+                return ((this.totalOperatingExpense) * 12);
             }
         }
         public double opExpOnOpIncome
         {
             get
             {
-                if (totalOperatingExpense != 0)
+                double _opExpOnOpIncome = 0;
+                if (monthOperatingIncome != 0)
                 {
-                    return (Math.Round((double)(this.monthOperatingIncome / totalOperatingExpense), 2));
+                    _opExpOnOpIncome= (Math.Round((double)((this.totalOperatingExpense / this.monthOperatingIncome )*100 ), 2));
                 }
-                else { return 0; }
+                return _opExpOnOpIncome;
 
-                
             }
         }
         public double annualOpExpOnOpIncome
         {
             get
             {
-                if (totalAnnualOperatingExpense != 0)
+                double _annualOpExpOnOpIncome = 0;
+                if (annualOperatingIncome != 0)
                 {
-                    return (Math.Round((double)(this.annualOperatingIncome / totalAnnualOperatingExpense), 2));
+                    _annualOpExpOnOpIncome=(Math.Round((double)((this.totalAnnualOperatingExpense/this.annualOperatingIncome)*100  ), 2));
                 }
-                else
-                { return 0; }
-                   
+                return _annualOpExpOnOpIncome;
+
+
             }
         }
         public decimal? netOperatingIncome
@@ -237,7 +255,12 @@ namespace Ls.Prj.DTO
         {
             get
             {
-                return (Math.Round((double)(this.annualOperatingIncome / this.purchasePrice), 2));
+                double _NetOperatingIncomePerc = 0;
+                if (this.purchasePrice != 0)
+                {
+                    _NetOperatingIncomePerc=(Math.Round((double)((this.annualNetOperatingIncome / this.purchasePrice)*100), 2));
+                }
+                return _NetOperatingIncomePerc;
             }
         }
         public decimal? totalPurchasePrice
@@ -251,7 +274,12 @@ namespace Ls.Prj.DTO
         {
             get
             {
-                return (Math.Round((double)(this.annualNetOperatingIncome / this.totalPurchasePrice), 2));
+                double _finalNetIncome = 0;
+                if (this.totalPurchasePrice != 0)
+                {
+                    _finalNetIncome=(Math.Round((double)((this.annualNetOperatingIncome / this.totalPurchasePrice)*100), 2));
+                }
+                return _finalNetIncome;
             }
         }
 
@@ -259,9 +287,25 @@ namespace Ls.Prj.DTO
         //[StringLength(50)]
         //public string city { get; set; }
 
+        public string housePhotoLnk
+        {
+            get
+            {
+                string _housePhotoLnk = "/Public/Images/ImgHouseEmpty.jpg";
 
+                if (this.housePhoto != null)
+                {
+                    if (this.housePhoto != "")
+                    {
+                        _housePhotoLnk = this.housePhoto;
+                    }
+                }
 
+                return _housePhotoLnk;
+            }
+        }
 
+       
 
 
         //[Column(TypeName = "money")]

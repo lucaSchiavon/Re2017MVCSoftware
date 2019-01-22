@@ -20,5 +20,6 @@ namespace Re2017MVC.Models.Houses
         public UsaHouseDTO HouseDTO;
         public Ls.Prj.Entity.House House;
         public List<SelectListItem> LstYesNo;
+        public List<HouseReportDTO> ReportsUrl;
     }
 }

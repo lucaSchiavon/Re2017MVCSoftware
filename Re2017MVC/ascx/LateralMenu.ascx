@@ -65,7 +65,7 @@
                                     <a href="/houses">Select</a>
                                 </li>
                                 <li>
-                                    <a href="HouseDetail.aspx">New</a>
+                                    <a href="/houses/Create">New</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

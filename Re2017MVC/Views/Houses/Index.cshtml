@@ -42,19 +42,23 @@
                     <th style="width:110px">@Html.DisplayName("Photo")</th>
                     <th>@Html.DisplayName("House")</th>
                     <th style="width:100px">@Html.DisplayName("Purchase Price")</th>
+                    <th style="width:100px">@Html.DisplayName("Extimated Cashflow")</th>
+                    <th style="width:100px">@Html.DisplayName("Real Cashflow")</th>
                     <th style="width:70px">@Html.DisplayName("zillow Link")</th>
                     <th style="width:70px">@Html.DisplayName("enabled")</th>
                     <th style="width:100px"></th>
                 </tr>
             </thead>
             <tbody>
-
+                
                 @foreach (var item in Model.LstHouses)
             {
                 <tr class="gradeA odd" role="row">
-                    <td><img src="@item.housePhoto" width="100px" /></td>
-                    <td> @Html.ActionLink((item.address + ", " + item.state + " (" + item.country + ")"), "Details", new { id = item.Id })</td>
+                    <td><a id="single_image" class="fancybox" href="@(item.housePhoto==null ? "javascript:void(0);"  : item.housePhotoLnk)"><img src="@item.housePhotoLnk" width="100px"/></a></td>
+                    <td> @Html.ActionLink((item.address + ", " + item.state + " (" + item.city + ")"), "Details", new { id = item.Id })</td>
                     <td> @(((decimal)item.purchasePrice).ToString("C", CultureInfo.CreateSpecificCulture("en-US")))</td>
+                    <td> @(item.finalNetIncome + "%")</td>
+                    <td> @("%")</td>
                     <td><a href="@item.zillowLink" target="_blank"><img src="~/Public/Images/ZillowLogo.jpg" width="100px" /></a></td>
                     <td>@((bool)item.enabled ? "YES" : "NO")</td>
                     <td class='center'><a class="btn btn-primary" href="@Url.Action("Edit", "Houses", new { id = item.Id })"><i class='fa fa-edit'></i> Update</a></td>

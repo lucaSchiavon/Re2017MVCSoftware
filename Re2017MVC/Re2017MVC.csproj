@@ -354,6 +354,7 @@
     <Content Include="Public\Images\estate.jpg" />
     <Content Include="Public\Images\estate2_ratioLungaSfumata.jpg" />
     <Content Include="Public\Images\estate2_ratio_lunga.jpg" />
+    <Content Include="Public\Images\ImgHouseEmpty.jpg" />
     <Content Include="Public\Images\LogoREM.jpg" />
     <Content Include="Public\Images\LogoREM.png" />
     <Content Include="Public\Images\realestate.jpg" />
