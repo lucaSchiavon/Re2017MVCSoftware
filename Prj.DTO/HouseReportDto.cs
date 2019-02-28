@@ -10,8 +10,8 @@ namespace Ls.Prj.DTO
     public class HouseReportDTO
     {
 
-        public string ReportUrl { get; set; }
-        public string Anno { get; set; }
+        public string reportUrl { get; set; }
+        public string year { get; set; }
       
 
     }

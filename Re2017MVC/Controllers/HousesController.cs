@@ -63,15 +63,25 @@ namespace Re2017MVC.Controllers
             {
                 return HttpNotFound();
             }
-            string report1 = Utility.ReadSetting("Re2017ApiUrl") + "/houses/" + UsaHouseDTOObj.Id + "/reports/years/2018";
-            string report2 = Utility.ReadSetting("Re2017ApiUrl") + "/houses/" + UsaHouseDTOObj.Id + "/reports/years/2019";
-            HouseReportDTO ObjHouseReportDTO1 = new HouseReportDTO();
-            ObjHouseReportDTO1.ReportUrl = report1;
-            ObjHouseReportDTO1.Anno = "2018";
-            HouseReportDTO ObjHouseReportDTO2 = new HouseReportDTO();
-            ObjHouseReportDTO2.ReportUrl = report2;
-            ObjHouseReportDTO2.Anno = "2019";
-            vm.ReportsUrl = new List<HouseReportDTO>() { ObjHouseReportDTO1, ObjHouseReportDTO2 };
+            RptHouseManagementManager ObjRptHouseManagementManager = new RptHouseManagementManager();
+            List<HouseReportDTO> LstRptDTO = new List<HouseReportDTO>();
+           LstRptDTO= ObjRptHouseManagementManager.GetReportsForHouses(UsaHouseDTOObj.Id.ToString());
+           // http://2.235.241.7:8080//houses/5/reports/years/2018
+            //*********************
+            //codice vecchio
+            //string report1 = Utility.ReadSetting("Re2017ApiUrl") + "/houses/" + UsaHouseDTOObj.Id + "/reports/years/2018";
+            // string report2 = Utility.ReadSetting("Re2017ApiUrl") + "/houses/" + UsaHouseDTOObj.Id + "/reports/years/2019";
+            //HouseReportDTO ObjHouseReportDTO1 = new HouseReportDTO();
+            //ObjHouseReportDTO1.reportUrl = report1;
+            //ObjHouseReportDTO1.year = "2018";
+            //HouseReportDTO ObjHouseReportDTO2 = new HouseReportDTO();
+            //ObjHouseReportDTO2.reportUrl = report2;
+            //ObjHouseReportDTO2.year = "2019";
+            //vm.ReportsUrl = new List<HouseReportDTO>() { ObjHouseReportDTO1, ObjHouseReportDTO2 };
+            ////*********************
+
+            vm.ReportsUrl = LstRptDTO;
+           
             vm.HouseDTO = UsaHouseDTOObj;
             //vm.House = house;
 

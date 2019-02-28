@@ -369,8 +369,8 @@
                                 @foreach (var item in Model.ReportsUrl)
     {
                                 <tr class="gradeA odd" role="row">
-                                    <td>@item.Anno</td>
-                                    <td><a href="@item.ReportUrl">@(@item.Anno + "-" + Model.HouseDTO.nickname )</a></td>
+                                    <td>@item.year</td>
+                                    <td><a href="@item.reportUrl">@(@item.year + "-" + Model.HouseDTO.nickname )</a></td>
                                 </tr>
                            
 }

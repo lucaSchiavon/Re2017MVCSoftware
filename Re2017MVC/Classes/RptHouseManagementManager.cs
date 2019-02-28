@@ -30,12 +30,49 @@ namespace Re2017.Classes
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-      
+
 
         #region Reports
 
 
-       
+        public List<HouseReportDTO> GetReportsForHouses(string IdHouse)
+        {
+
+            List<HouseReportDTO> LstRpt = new List<HouseReportDTO>();
+            LstRpt = GetAsyncReportsForHouses("houses/" + IdHouse + "/reports").Result;
+
+            //mapping su DTO
+            List<HouseReportDTO> LstHouseReportDTO2 = new List<HouseReportDTO>();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<HouseReportDTO, HouseReportDTO>()
+                .ForMember(dest => dest.reportUrl, opt => opt.MapFrom(src => Utility.ReadSetting("Re2017ApiUrl") +  src.reportUrl));
+            });
+
+
+
+            IMapper mapper = config.CreateMapper();
+            LstHouseReportDTO2 = mapper.Map<List<HouseReportDTO>, List<HouseReportDTO>>(LstRpt);
+
+            return LstHouseReportDTO2;
+
+            //return LstRpt;
+
+
+        }
+
+        async Task<List<HouseReportDTO>> GetAsyncReportsForHouses(string path)
+        {
+            List<HouseReportDTO> Lst = null;
+            HttpResponseMessage response = await client.GetAsync(path, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                Lst = await response.Content.ReadAsAsync<List<HouseReportDTO>>();
+            }
+
+            //Utility.ReadSetting("Re2017ApiUrl")
+            return Lst;
+        }
 
         public void NewReport(NewReportInputDto ObjNewReportInputDto, int IdHouse)
         {

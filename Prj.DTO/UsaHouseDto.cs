@@ -298,7 +298,11 @@ namespace Ls.Prj.DTO
                 {
                     if (this.housePhoto != "")
                     {
-                        _housePhotoLnk = this.housePhoto;
+                        if (this.housePhoto != " ")
+                        {
+                            _housePhotoLnk = this.housePhoto;
+                        }
+                           
                     }
                 }
 
