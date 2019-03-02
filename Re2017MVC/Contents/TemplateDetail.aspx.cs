@@ -87,6 +87,8 @@ namespace Ls.Re2017.Contents
 
        private  List<EventTypeDTO> LstEvtType;
         private List<HouseDTO> LstHouse;
+        private List<LandlordDTO> LstLandlord;
+        private List<PartyDTO> LstParty;
         public string MemIdTemp = "0";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -97,7 +99,8 @@ namespace Ls.Re2017.Contents
                 TrackManagement2PageManager ObjTrackManagement2PageManager = new TrackManagement2PageManager();
                 LstEvtType = ObjTrackManagement2PageManager.GetEventsType();
                 LstHouse = ObjTrackManagement2PageManager.GetHouse();
-               
+                LstLandlord = ObjTrackManagement2PageManager.GetLandlords();
+                LstParty = ObjTrackManagement2PageManager.GetParties();
 
                 if (!Page.IsPostBack)
                 {
@@ -235,36 +238,51 @@ namespace Ls.Re2017.Contents
 
         }
 
-        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                DropDownList CboEventi = e.Item.FindControl("CboEventi") as DropDownList;
-                PopolaCboEventi(CboEventi);
-                DropDownList CboCase = e.Item.FindControl("CboCase") as DropDownList;
-                PopolaCboCase(CboCase);
+        //protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        //{
+        //    if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        //    {
+        //        DropDownList CboEventi = e.Item.FindControl("CboEventi") as DropDownList;
+        //        PopolaCboEventi(CboEventi);
+        //        DropDownList CboCase = e.Item.FindControl("CboCase") as DropDownList;
+        //        PopolaCboCase(CboCase);
+        //        DropDownList CboLandlord = e.Item.FindControl("CboLandlord") as DropDownList;
+        //        PopolaCboLandlord(CboLandlord);
+        //        DropDownList CboParty = e.Item.FindControl("CboParty") as DropDownList;
+        //        PopolaCboParty(CboParty);
 
-                Ls.Prj.DTO.EventoDTO drv = (Ls.Prj.DTO.EventoDTO)e.Item.DataItem;
+        //        Ls.Prj.DTO.EventoDTO drv = (Ls.Prj.DTO.EventoDTO)e.Item.DataItem;
 
-                CboCase.Attributes.Add("onchange", "UpdateHouse(this)");
-                CboEventi.Attributes.Add("onchange", "UpdateEvtType(this)");
-                //DataRowView drv = e.Row.DataItem as DataRowView;
-                Utility.SetDropByValue(CboEventi, CboEventi.Attributes["MemId"]);
-                Utility.SetDropByValue(CboCase, CboCase.Attributes["MemId"]);
+        //        CboCase.Attributes.Add("onchange", "UpdateHouse(this)");
+        //        CboEventi.Attributes.Add("onchange", "UpdateEvtType(this)");
+        //        CboLandlord.Attributes.Add("onchange", "UpdateLandlord(this)");
+        //        CboParty.Attributes.Add("onchange", "UpdateParty(this)");
+        //        //DataRowView drv = e.Row.DataItem as DataRowView;
+        //        Utility.SetDropByValue(CboEventi, CboEventi.Attributes["MemId"]);
+        //        Utility.SetDropByValue(CboCase, CboCase.Attributes["MemId"]);
+        //        Utility.SetDropByValue(CboLandlord, CboLandlord.Attributes["MemId"]);
+        //        Utility.SetDropByValue(CboParty, CboParty.Attributes["MemId"]);
 
-                if (CboEventi.Attributes["MemId"] == "0")
-                {
-                    CboEventi.Attributes.Add("style", "font-weight:bold");
-                }
+        //        if (CboEventi.Attributes["MemId"] == "0")
+        //        {
+        //            CboEventi.Attributes.Add("style", "font-weight:bold");
+        //        }
 
-                if (CboCase.Attributes["MemId"] == "0")
-                {
-                    CboCase.Attributes.Add("style", "font-weight:bold");
-                }
-                
-            
-            }
-        }
+        //        if (CboCase.Attributes["MemId"] == "0")
+        //        {
+        //            CboCase.Attributes.Add("style", "font-weight:bold");
+        //        }
+
+        //        if (CboLandlord.Attributes["MemId"] == "0")
+        //        {
+        //            CboLandlord.Attributes.Add("style", "font-weight:bold");
+        //        }
+        //        if (CboParty.Attributes["MemId"] == "0")
+        //        {
+        //            CboParty.Attributes.Add("style", "font-weight:bold");
+        //        }
+        //    }
+        //}
 
         protected void RptSelEvt_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
@@ -274,14 +292,22 @@ namespace Ls.Re2017.Contents
                 PopolaCboEventi(CboEventi);
                 DropDownList CboCase = e.Item.FindControl("CboCase") as DropDownList;
                 PopolaCboCase(CboCase);
+                DropDownList CboLandlord = e.Item.FindControl("CboLandlord") as DropDownList;
+                PopolaCboLandlord(CboLandlord);
+                DropDownList CboParty = e.Item.FindControl("CboParty") as DropDownList;
+                PopolaCboParty(CboParty);
 
                 //Evento drv = (Evento)e.Item.DataItem;
 
                 CboCase.Attributes.Add("onchange", "TmpUpdateHouse(this)");
                 CboEventi.Attributes.Add("onchange", "TmpUpdateEvtType(this)");
+                CboLandlord.Attributes.Add("onchange", "TmpUpdateLandlord(this)");
+                CboParty.Attributes.Add("onchange", "TmpUpdateParty(this)");
                 //DataRowView drv = e.Row.DataItem as DataRowView;
                 Utility.SetDropByValue(CboEventi, CboEventi.Attributes["MemId"]);
                 Utility.SetDropByValue(CboCase, CboCase.Attributes["MemId"]);
+                Utility.SetDropByValue(CboLandlord, CboLandlord.Attributes["MemId"]);
+                Utility.SetDropByValue(CboParty, CboParty.Attributes["MemId"]);
 
                 if (CboEventi.Attributes["MemId"] == "0")
                 {
@@ -293,7 +319,14 @@ namespace Ls.Re2017.Contents
                     CboCase.Attributes.Add("style", "font-weight:bold");
                 }
 
-            
+                if (CboLandlord.Attributes["MemId"] == "0")
+                {
+                    CboLandlord.Attributes.Add("style", "font-weight:bold");
+                }
+                if (CboParty.Attributes["MemId"] == "0")
+                {
+                    CboParty.Attributes.Add("style", "font-weight:bold");
+                }
             }
         }
 
@@ -326,7 +359,7 @@ namespace Ls.Re2017.Contents
                         var TxtAmount = (TextBox)item.FindControl("TxtAmount");
                         var TxtDescription = (TextBox)item.FindControl("TxtDescription");
                         DropDownList CboCase = (DropDownList)item.FindControl("CboCase");
-                        int idEvt =Convert.ToInt32( CboCase.Attributes["MemIdEvt"]);
+                        int idEvt =Convert.ToInt32(CboCase.Attributes["MemIdEvt"]);
                         //MemIdEvt
                         //fa il put del dato
                         UpdateBrotherEvtDto ObjUpdateBrotherEvtDto = new UpdateBrotherEvtDto();
@@ -450,6 +483,41 @@ namespace Ls.Re2017.Contents
                 }
             }
             drop.Items.Add(new ListItem("--Select house--", "0"));
+            Utility.SetDropByValue(drop, "0");
+        }
+
+        private void PopolaCboLandlord(DropDownList drop)
+        {
+            if (LstLandlord != null)
+            {
+
+                foreach (LandlordDTO Curr in LstLandlord)
+                {
+                    var listItem = new ListItem();
+                    listItem.Value = Curr.id.ToString();
+                    listItem.Text = Curr.name;
+                    drop.Items.Add(listItem);
+
+                }
+            }
+            drop.Items.Add(new ListItem("--Select landlord--", "0"));
+            Utility.SetDropByValue(drop, "0");
+        }
+        private void PopolaCboParty(DropDownList drop)
+        {
+            if (LstParty != null)
+            {
+
+                foreach (PartyDTO Curr in LstParty)
+                {
+                    var listItem = new ListItem();
+                    listItem.Value = Curr.id.ToString();
+                    listItem.Text = Curr.name;
+                    drop.Items.Add(listItem);
+
+                }
+            }
+            drop.Items.Add(new ListItem("--Select party--", "0"));
             Utility.SetDropByValue(drop, "0");
         }
 
