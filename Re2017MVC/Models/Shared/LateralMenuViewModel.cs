@@ -7,5 +7,6 @@ namespace Re2017MVC.Models.Shared
 {
     public class LateralMenuViewModel
     {
+        public string UserRole;
     }
 }

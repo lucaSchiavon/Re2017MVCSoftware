@@ -17,7 +17,8 @@
                       <%--  <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>--%>
-                        <li>
+                      
+                        <li ID="BankTransLi" runat="server">
                             <a href="#"><i class="fa fa-bank fa-fw"></i> Bank transactions<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -29,6 +30,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                     
                        <%-- <li>
                             <a href="#"><i class="fa fa-file-text-o fa-fw"></i> Documents<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -64,13 +66,16 @@
                                 <li>
                                     <a href="/houses">Select</a>
                                 </li>
-                                <li>
+  
+                                <li ID="CreateHouseLi" runat="server">
                                     <a href="/houses/Create">New</a>
                                 </li>
+                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        
+                        <li ID="ReportsLi" runat="server">
                             <a href="#"><i class="fa fa-list-alt fa-fw"></i> Reports<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                  <li>
@@ -85,15 +90,18 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                      
                           <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="Users.aspx">Select</a>
                                 </li>
-                                <li>
+                                 
+                                <li ID="CreateUserLi" runat="server">
                                     <a href="UserDetail.aspx">New</a>
                                 </li>
+                             
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

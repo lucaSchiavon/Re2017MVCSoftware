@@ -24,8 +24,16 @@ namespace AQuest.ChatBotGsk.PigeonCms.pgn_content.Contents
                 //registra in fondo alla pagina lo script js per le funzionalità jquery della tabella
                 AppendJqeryScriptForTable();
 
-                //carica tabella
-                LoadList();
+                if (LoginUsr.role.Trim() != "ADMIN")
+                {
+                    //nasconde la colonna ruoli e quella del bottone aggiorna
+
+                    InsertUserDiv.Visible = false;
+                    thUpdateCol.Visible = false;
+                    thRoleCol.Visible = false;
+                }
+                    //carica tabella
+                    LoadList();
                 
             }
             catch (Exception ex)
@@ -138,18 +146,26 @@ namespace AQuest.ChatBotGsk.PigeonCms.pgn_content.Contents
             foreach (UserDTO CurrUsr in LstUsr)
             {
                 //Sb.Append("<tr class='odd gradeA'><td>" + CurrUsrDto.Name + "</td><td>" + CurrUsrDto.UserId + "</td><td>" + CurrUsrDto.Role + "</td><td class='center'>" + CurrUsrDto.Enabled + "</td><td class='center'><a class='btn btn-primary' href='UserDetail.aspx?Id=" + CurrUsrDto.IdUser + "'><i class='fa fa-edit'></i> Update</a> <a class='btn btn-danger' href='javascript:ShowDelForm(" + CurrUsrDto.IdUser + ");'><i class='fa fa-times'></i> Delete</a></td></tr>");
+               
+                    Sb.Append("<tr class='odd gradeA'>");
 
-                Sb.Append("<tr class='odd gradeA'>");
+                    Sb.Append("<td style='width:100px'>" + CurrUsr.name + "</td>");
+                    Sb.Append("<td>" + CurrUsr.email + "</td>");
+                if (LoginUsr.role.Trim() == "ADMIN")
+                {
+                    Sb.Append("<td>" + CurrUsr.role + "</td>");
+                }     
+                    Sb.Append("<td class='center'>" + CurrUsr.enabled + "</td>");
+                if (LoginUsr.role.Trim() == "ADMIN")
+                {
+                    Sb.Append("<td class='center'>");
+                    Sb.Append("<a class='btn btn-primary' href='UserDetail.aspx?Id=" + CurrUsr.id + "'><i class='fa fa-edit'></i> Update</a> ");
+                    //Sb.Append("<a class='btn btn-danger' href='javascript:ShowDelForm(" + CurrUsr.id + ");'><i class='fa fa-times'></i> Delete</a>");
+                    Sb.Append("</td>");
+                }
+     
 
-                Sb.Append("<td style='width:100px'>" + CurrUsr.name + "</td>");
-                Sb.Append("<td>" + CurrUsr.email + "</td>");
-                Sb.Append("<td>" + CurrUsr.role + "</td>");
-                Sb.Append("<td class='center'>" + CurrUsr.enabled  + "</td>");
-
-                Sb.Append("<td class='center'>");
-                Sb.Append("<a class='btn btn-primary' href='UserDetail.aspx?Id=" + CurrUsr.id + "'><i class='fa fa-edit'></i> Update</a> ");
-                //Sb.Append("<a class='btn btn-danger' href='javascript:ShowDelForm(" + CurrUsr.id + ");'><i class='fa fa-times'></i> Delete</a>");
-                Sb.Append("</td>");
+              
 
                 Sb.Append("</tr>");
 

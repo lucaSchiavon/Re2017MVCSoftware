@@ -64,6 +64,21 @@ namespace Re2017.Classes
         async Task<List<HouseReportDTO>> GetAsyncReportsForHouses(string path)
         {
             List<HouseReportDTO> Lst = null;
+            //todo: security passaggio token a riccardo
+            //--------------------------
+            //var tk = System.Web.HttpContext.Current.Session["jwt"].ToString() ;
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
+            //--------------------------
+            //client.DefaultRequestHeaders.Add("token", "klkfjglfd");
+            //*****************
+            //var jwt = JsonWebToken.Encode(token, APISECRET, JwtHashAlgorithm.HS256);
+            //var tk = GetTokenFromApi(); // basically returns an encrypted string.
+           
+           
+            //request.Headers.Set("Authorization", string.Format("Bearer {0}", tk));
+            //var authenticationHeaderValue = new AuthenticationHeaderValue("Bearer", tk);
+            //******************
+
             HttpResponseMessage response = await client.GetAsync(path, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {

@@ -30,7 +30,17 @@ namespace Re2017MVC.Controllers
             //****************************************
             List<UsaHouseDTO> LstUsaHouses = new List<UsaHouseDTO>();
             List<UsaHouseDTO> LstUsaHousesWithDefault = new List<UsaHouseDTO>();
-            LstUsaHouses = ObjUsaHousesPageManager.GetUSAHouses();
+
+            if ( LoginUsr.role.Trim() == "INVESTOR")
+            {
+                LstUsaHouses = ObjUsaHousesPageManager.GetUSAHouses(LoginUsr.id.ToString());
+            }
+            else
+            {
+                LstUsaHouses = ObjUsaHousesPageManager.GetUSAHouses("");
+            }
+
+           
 
             foreach (UsaHouseDTO HouseObj in LstUsaHouses)
             {
@@ -214,10 +224,11 @@ namespace Re2017MVC.Controllers
         {
             var vm = new Re2017MVC.Models.Houses.IndexViewModel();
             vm.UtenteCorrente = LoginUsr;
+
             vm.HeaderVM = new HeaderViewModel
             {
                 UtenteCorrente = vm.UtenteCorrente,
-                LateralMenuVM = new LateralMenuViewModel()
+                LateralMenuVM = new LateralMenuViewModel { UserRole = LoginUsr.role.Trim() }
                
             };
 

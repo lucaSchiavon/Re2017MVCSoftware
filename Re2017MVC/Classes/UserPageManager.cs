@@ -57,6 +57,8 @@ namespace Re2017.Classes
         public async Task<Utente> GetAsyncUtente(string path)
         {
             Utente ObjUtente = null;
+            //var tk = System.Web.HttpContext.Current.Session["jwt"].ToString();
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
             HttpResponseMessage response = await client.GetAsync(path, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {

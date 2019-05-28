@@ -76,6 +76,33 @@ namespace AQuest.ChatBotGsk.PigeonCms.pgn_content.Contents {
         protected global::System.Web.UI.WebControls.Button BtnClose;
         
         /// <summary>
+        /// Controllo InsertUserDiv.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InsertUserDiv;
+        
+        /// <summary>
+        /// Controllo thRoleCol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell thRoleCol;
+        
+        /// <summary>
+        /// Controllo thUpdateCol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell thUpdateCol;
+        
+        /// <summary>
         /// Controllo LitContentTable.
         /// </summary>
         /// <remarks>

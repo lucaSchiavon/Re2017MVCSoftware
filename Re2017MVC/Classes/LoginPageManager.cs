@@ -101,6 +101,11 @@ namespace Re2017.Classes
 
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var result = client.PostAsync("users/login", byteContent).Result;
+            //todo: recuperare l'headers del token e del role
+           //string jwt= result.Headers.GetValues("jwt").ToList<string>().FirstOrDefault();
+            //string role = result.Headers.GetValues("role").ToList<string>().FirstOrDefault();
+            //System.Web.HttpContext.Current.Session["jwt"]= jwt;
+            //result.Headers.GetValues("role");
             return result;
         }
        

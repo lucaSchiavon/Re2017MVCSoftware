@@ -29,13 +29,25 @@ namespace Re2017.Classes
         }
 
         #region UsaHouses
+
+
        
 
-        public List<UsaHouseDTO> GetUSAHouses()
+        public List<UsaHouseDTO> GetUSAHouses(string IdUser)
         {
 
             List<House> LstUSAHouses = new List<House>();
-            LstUSAHouses = GetAsyncUSAHouses("houses").Result;
+
+            if (IdUser=="")
+                {
+                LstUSAHouses = GetAsyncUSAHouses("houses").Result;
+                }
+            else
+                {
+                LstUSAHouses = GetAsyncUSAHouses("houses?userId=" + IdUser).Result;
+            }
+
+          
 
             //mapping su DTO
             List<UsaHouseDTO> LstUSAHousesDTO = new List<UsaHouseDTO>();

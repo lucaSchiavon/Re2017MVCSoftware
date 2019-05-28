@@ -62,7 +62,7 @@
                         </div>--%>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                             <div class="row">
+                             <div id="InsertUserDiv" runat="server" class="row">
                 <div class="col-lg-12 text-right">
                    <a class="btn btn-success" href="UserDetail.aspx"><i class="fa fa-pencil"></i> Insert</a>
                  </div></div>
@@ -74,9 +74,9 @@
                                     <tr>
                                         <th style="width:300px">Name</th>
                                         <th>Email/Userid</th>
-                                        <th>Role</th>
+                                        <th Id="thRoleCol" runat="server">Role</th>
                                         <th style="width:50px">Enabled</th>
-                                        <th data-sortable="false" style="width:50px"></th>
+                                        <th Id="thUpdateCol" runat="server" data-sortable="false" style="width:50px"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
